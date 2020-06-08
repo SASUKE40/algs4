@@ -1,0 +1,27 @@
+{
+  "name": "algs4",
+  "version": "1.0.0",
+  "description": "JavaScript Code for Algorithms, 4th edition",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SASUKE40/algs4.git"
+  },
+  "author": "Edward Elric <SASUKE688848@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SASUKE40/algs4/issues"
+  },
+  "homepage": "https://github.com/SASUKE40/algs4#readme",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "prettier --write src/**/*.js"
+  },
+  "keywords": [
+    "JavaScript",
+    "Algorithms"
+  ],
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
