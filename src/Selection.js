@@ -10,3 +10,7 @@ class Selection {
     }
   }
 }
+
+let a = ['S', 'O', 'R', 'T', 'E', 'X', 'A', 'M', 'P', 'L', 'E'];
+Selection.sort(a);
+console.log(a);

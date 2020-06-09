@@ -9,7 +9,7 @@ class WeightedQuickUnionUF {
     }
   }
   find(p) {
-    while (p !== this.parent[p]) p = p.parent[p];
+    while (p !== this.parent[p]) p = this.parent[p];
     return p;
   }
   connected(p, q) {
@@ -29,3 +29,18 @@ class WeightedQuickUnionUF {
     this.count--;
   }
 }
+
+let weightedQuickUnionUF = new WeightedQuickUnionUF(10);
+
+weightedQuickUnionUF.union(4, 3);
+weightedQuickUnionUF.union(3, 8);
+weightedQuickUnionUF.union(6, 5);
+weightedQuickUnionUF.union(9, 4);
+weightedQuickUnionUF.union(2, 1);
+weightedQuickUnionUF.union(8, 9);
+weightedQuickUnionUF.union(5, 0);
+weightedQuickUnionUF.union(7, 2);
+weightedQuickUnionUF.union(6, 1);
+weightedQuickUnionUF.union(1, 0);
+weightedQuickUnionUF.union(6, 7);
+console.log(weightedQuickUnionUF.connected(7, 1));
