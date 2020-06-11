@@ -91,6 +91,8 @@ class BST {
       x.right = this._deleteMin(t.right);
       x.left = t.left;
     }
+    x.count = this._size(x.left) + this._size(x.right) + 1;
+    return x;
   }
   min() {
     return this._min(this.root).key;
