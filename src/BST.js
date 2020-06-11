@@ -45,6 +45,60 @@ class BST {
     if (x === null) return 0;
     return x.count;
   }
+  rank(key) {
+    return this._rank(key, this.root);
+  }
+  _rank(key, x) {
+    if (x === null) return 0;
+    let cmp = key.compareTo(x.key);
+    if (cmp < 0) return this._rank(key, x.left);
+    else if (cmp > 0) return this._size(x.left) + 1 + this._rank(key, x.right);
+    else return this._size(x.left);
+  }
+  keys() {
+    let q = [];
+    this._inorder(this.root, q);
+    return q;
+  }
+  _inorder(x, q) {
+    if (x === null) return;
+    this._inorder(x.left, q);
+    q.push(x.key);
+    this._inorder(x.right, q);
+  }
+  deleteMin() {
+    this.root = this._deleteMin(this.root);
+  }
+  _deleteMin(x) {
+    if (x.left === null) return x.right;
+    x.left = this._deleteMin(x.left);
+    x.count = 1 + this._size(x.left) + this._size(x.right);
+    return x;
+  }
+  delete(key) {
+    this.root = this._delete(this.root, key);
+  }
+  _delete(x, key) {
+    if (x === null) return null;
+    let cmp = key.compareTo(x.key);
+    if (cmp < 0) x.left = this._delete(x.left, key);
+    else if (cmp > 0) x.right = this._detete(x.right, key);
+    else {
+      if (x.right === null) return x.left;
+      if (x.left === null) return x.right;
+      let t = x;
+      x = this._min(t.right);
+      x.right = this._deleteMin(t.right);
+      x.left = t.left;
+    }
+  }
+  min() {
+    return this._min(this.root).key;
+  }
+  _min(x) {
+    if (x.left === null) return x;
+    return this._min(x.left);
+  }
 }
 class Node {
   left = null;
