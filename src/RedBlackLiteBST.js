@@ -148,6 +148,15 @@ class RedBlackLiteBST {
     }
     return key;
   }
+  isBST() {
+    return this._isBST(this.root, null, null);
+  }
+  _isBST(x, min, max) {
+    if (x === null) return true;
+    if (min !== null && x.key.compareTo(min) <= 0) return false;
+    if (max !== null && x.key.compareTo(max) >= 0) return false;
+    return this._isBST(x.left, min, x.key) && this._isBST(x.right, x.key, max);
+  }
 }
 class Node {
   key = null;
